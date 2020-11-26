@@ -11,7 +11,7 @@ app.use(cors());
 const port = 3006;
 app.use(cors());
 mongoose
-  .connect("mongodb://localhost:27017/myveediooapp", { useNewUrlParser: true })
+  .connect("mongodb+srv://priyam1103:priyam7035@cluster0.shnmn.mongodb.net/youtube-clone?retryWrites=true&w=majority", { useNewUrlParser: true })
   .then(() => console.log("connected"));
 
 app.post("/api/upload", async (req, res) => {
