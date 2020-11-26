@@ -8,10 +8,14 @@ export default function Home({ play }) {
   const vid = useRef([]);
   vid.current = [];
   React.useEffect(() => {
-    axios.get("http://localhost:3006/videos").then((res) => {
+  
+    axios.get("https://youtube-clone-priyam.herokuapp.com/videos").then((res) => {
       setData(res.data.videos);
       setMainData(res.data.videos);
-    });
+    })
+      .catch((err) => {
+      console.log(err)
+    })
   }, []);
   const handleMouse = (e) => {
     vid.current[e].play();
@@ -103,7 +107,6 @@ export default function Home({ play }) {
                   <div className="playlist-vid-detail">
                     <div className="playlist-details">
                       <p className="playlist-video-title">{data[s].title}</p>
-                      <p className="playlist-video-by">SAB TV</p>
                       <p className="playlist-video-views">
                         {data[s].views} views |{" "}
                         {data[s].createdAt.toString().substr(0, 10)}

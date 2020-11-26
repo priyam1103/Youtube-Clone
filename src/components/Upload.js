@@ -84,7 +84,7 @@ export default function Upload() {
 
     try {
       axios
-        .post("http://localhost:3006/api/upload", dataa, options)
+        .post("https://youtube-clone-priyam.herokuapp.com/api/upload", dataa, options)
         .then((res) => {
           console.log(res);
           setPreviewSource("");

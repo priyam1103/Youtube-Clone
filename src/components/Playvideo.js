@@ -14,7 +14,7 @@ export default function Playvideo({ location }) {
 
   React.useEffect(() => {
     console.log(id);
-    axios.get(`http://localhost:3006/likedislike/${id}`).then((res) => {
+    axios.get(`https://youtube-clone-priyam.herokuapp.com/likedislike/${id}`).then((res) => {
       console.log(res.data);
       setLikes(res.data.likes);
       setDislikes(res.data.dislikes);
@@ -22,12 +22,12 @@ export default function Playvideo({ location }) {
   }, []);
 
   const handleLike = (id) => {
-    axios.post("http://localhost:3006/likeVideo", { id: id }).then((res) => {
+    axios.post("https://youtube-clone-priyam.herokuapp.com/likeVideo", { id: id }).then((res) => {
       setLikes(res.data.likes);
     });
   };
   const handleDisLike = (id) => {
-    axios.post("http://localhost:3006/dislikeVideo", { id: id }).then((res) => {
+    axios.post("https://youtube-clone-priyam.herokuapp.com/dislikeVideo", { id: id }).then((res) => {
       setDislikes(res.data.dislikes);
     });
   };
@@ -38,7 +38,7 @@ export default function Playvideo({ location }) {
       if ((vid.current.duration * 50) / 100 < vid.current.currentTime) {
         setViewCounted(true);
         axios
-          .post("http://localhost:3006/countView", { id: id })
+          .post("https://youtube-clone-priyam.herokuapp.com/countView", { id: id })
           .then((res) => {
             setViews(res.data.views);
           });
